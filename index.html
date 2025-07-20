@@ -52,6 +52,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
     />
+    <link rel="stylesheet"
+      href="https://unpkg.com/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
+<script src="https://unpkg.com/lightgallery@2.7.1/lightgallery.umd.js"></script>
+<script src="https://unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.umd.js"></script>
+
+    
     <style>
       :where([class^="ri-"])::before { content: "\f3c2"; }
       .section-background {
@@ -1076,6 +1082,7 @@
 
 
     <script id="modalScript">
+      let lgInstance = null;
       const initializeModal = () => {
         const modal = document.getElementById("projectModal");
         const closeModal = document.getElementById("closeModal");
@@ -1307,13 +1314,38 @@
                 li.innerHTML = `<i class="ri-check-line text-accent mr-2"></i>${feature}`;
                 featuresContainer.appendChild(li);
               });
+              
+              
               const galleryContainer = document.getElementById("modalGallery");
               galleryContainer.innerHTML = "";
-              project.gallery.forEach((imageUrl) => {
-                const div = document.createElement("div");
-                div.className = "gallery-image";
-                div.innerHTML = `<img src="${imageUrl}" alt="Project Gallery" class="w-full h-full object-cover object-top">`;
-                galleryContainer.appendChild(div);
+              
+              // 如果之前有 lightGallery 实例，先销毁，避免重复绑定
+              if (lgInstance) { lgInstance.destroy(); lgInstance = null; }
+              
+              project.gallery.forEach((item, idx) => {
+                const src   = typeof item === "string" ? item : item.src;
+                const title = typeof item === "string" ? project.title + " Bild " + (idx+1) : item.title;
+              
+                const a = document.createElement("a");
+                a.href = src;                          // 大图地址
+                a.setAttribute("data-lg-size", "1600-900"); // 可按需要改真实分辨率
+                a.setAttribute("data-sub-html", `<h4>${title}</h4>`); // 标题
+              
+                a.innerHTML = `
+                  <img src="${src}"
+                       alt="${title}"
+                       class="w-full h-full object-cover rounded-lg" />
+                `;
+              
+                galleryContainer.appendChild(a);
+              });
+              
+              // 初始化 lightGallery
+              lgInstance = lightGallery(galleryContainer, {
+                selector: "a",
+                plugins: [lgZoom],
+                speed: 300,
+                download: false          // 关闭下载按钮（可选）
               });
               const caseStudyContainer = document.getElementById("modalCaseStudy");
               caseStudyContainer.innerHTML = "";
