@@ -886,7 +886,7 @@
             <div class="aspect-video relative">
               <img
                 src="/assets/sharepoint1.png"
-                alt="Travel Planning App"
+                alt="SharePoint Page"
                 class="w-full h-full object-cover object-top"
               />
               <div class="category-tag category-canvas_app px-3 py-1 rounded-full">
@@ -923,17 +923,17 @@
           
           <div
             class="project-card rounded-xl overflow-hidden cursor-pointer"
-            data-category="ui"
-            data-project="dashboard"
+            data-category="android"
+            data-project="androidüberwachungsapp"
           >
             <div class="aspect-video relative">
               <img
-                src="https://readdy.ai/api/search-image?query=modern%20dashboard%20UI%20design%20with%20data%20visualization%2C%20charts%2C%20graphs%2C%20clean%20interface%2C%20dark%20theme%2C%20professional%20admin%20panel%20design&width=600&height=400&seq=proj004&orientation=landscape"
-                alt="Analytics Dashboard"
+		src: "/assets/android-main-page.png"
+	    alt="Android Überwachungsapp"
                 class="w-full h-full object-cover object-top"
               />
               <div class="category-tag category-ui px-3 py-1 rounded-full">
-                UI/UX
+                Android Überwachungsapp
               </div>
               <div class="overlay"></div>
               <button
@@ -1254,26 +1254,35 @@
             title: "Android Überwachungsapp",
             category: "android",
             description:
-              "Comprehensive data visualization dashboard designed for business intelligence and analytics. Features real-time data updates, customizable widgets, and intuitive navigation for complex data sets.",
-            technologies: ["Figma", "D3.js", "Vue.js", "Chart.js", "Sass", "Webpack"],
-            features: [
-              "Real-time data visualization",
-              "Customizable dashboard widgets",
-              "Interactive charts and graphs",
-              "Advanced filtering and sorting",
-              "Export functionality for reports",
-              "Responsive design for all devices",
-            ],
-            gallery: [
-              "https://readdy.ai/api/search-image?query=analytics%20dashboard%20overview%20with%20multiple%20charts&width=400&height=300&seq=gal010&orientation=landscape",
-              "https://readdy.ai/api/search-image?query=data%20visualization%20charts%20and%20graphs%20interface&width=400&height=300&seq=gal011&orientation=landscape",
-              "https://readdy.ai/api/search-image?query=dashboard%20customization%20panel%20and%20widgets&width=400&height=300&seq=gal012&orientation=landscape",
-            ],
-            caseStudy: [
-              "The client struggled with data interpretation across multiple platforms and needed a unified analytics solution.",
-              "We conducted extensive user research to understand how different stakeholders interact with data and designed accordingly.",
-              "The new dashboard reduced report generation time by 75% and improved decision-making speed across the organization.",
-            ],
+	  "Native Android‑Applikation, die handelsübliche Smartphones in mobile Sensor­einheiten für die Fertigungs­überwachung verwandelt. Die App erfasst Maschinendaten in Echtzeit, versendet Warnungen per SMS/E‑Mail und erlaubt eine Fernsteuerung des Geräts über definierte Befehle.",
+	
+	technologies: [
+	  "Java",
+	  "Kotlin",
+	  "Android Studio",
+	  "Broadcast Receiver",
+	  "JavaMail API",
+	  "REST Client (OKHttp)"
+	],
+	
+	features: [
+	  "Echtzeit‑Erfassung von Vibrations‑ und Temperatur­daten über integrierte Sensoren",
+	  "Versand von Alarmen und Status­reports per SMS und E‑Mail",
+	  "Remote‑Befehle (Start/Stop/Reset) via SMS‑Command‑Parser",
+	  "Client‑Server‑Kommunikation über REST‑API mit JSON‑Payloads",
+	  "Offline‑Pufferung der Messwerte und automatischer Sync bei Netz­verbindung",
+	  "In‑App Dashboard mit Live‑Charts (MPAndroidChart)"
+	],
+
+      	    gallery: [
+	    { src: "/assets/android-recording.png",  title: "SharePoint Homepage" },
+	    { src: "/assets/android-structure.png",  title: "SharePoint Homepage" },
+      	    ],
+	caseStudy: [
+	  "Zur Überwachung von Werkzeugmaschinen fehlte eine günstige, mobil einsetzbare Lösung. Kommerzielle Industrie­systeme waren kostspielig und fest installiert.",
+	  "Lösung: Entwicklung von zwei Android‑Apps – Client (Sensor‑Erfassung + Fernsteuerung) und Server‑App (Daten­aggregation). Integration von Broadcast Receivern für SMS‑Trigger und JavaMail API für E‑Mail‑Versand. Daten­übertragung erfolgte über eine schlanke REST‑Schnittstelle.",
+	  "Ergebnis: Produktionsstillstände konnten um 25 % reduziert werden, da Wartungs­personal über SMS/E‑Mail sofort alarmiert wurde. Das Projekt zeigte, dass Standard‑Smartphones eine kosteneffiziente Alternative zu spezialisierten Sensor­geräten darstellen."
+	],
           },
           
         };
